@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a1a, #2c0f1e);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* TOPO */
+header {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ff4d6d;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* MÚSICA */
+.music {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 40px;
+}
+
+/* SEÇÕES */
+section {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.text-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.text-box h2 {
+  color: #ff758f;
+  margin-bottom: 15px;
+}
+
+/* GALERIA */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* RODAPÉ */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+/* PLAYER SPOTIFY */
+.music {
+  max-width: 420px;
+  margin: 0 auto 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.music:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+}
+
+.music iframe {
+  width: 100%;
+  border-radius: 18px;
+}
+
+/* ANIMAÇÃO SUAVE AO CARREGAR */
+.music,
+.text-box,
+.gallery img {
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ANIMAÇÃO ESPECIAL DA MENSAGEM */
+.text-box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* brilho suave passando */
+.text-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  animation: shine 6s infinite;
+}
+
+/* efeito de entrada */
+.text-box {
+  animation: popIn 0.9s ease forwards;
+}
+
+/* animações */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* texto com leve destaque */
+.text-box p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  animation: textFade 1.4s ease;
+}
+
+@keyframes textFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* ============================= */
+/* MENSAGEM ANIMADA + CARTA */
+/* ============================= */
+
+.text-box {
+  position: relative;
+  overflow: hidden;
+  animation: popIn 1s ease forwards;
+}
+
+/* efeito de carta */
+.text-box {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* brilho passando */
+.text-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  animation: shine 7s infinite;
+}
+
+/* TEXTO LINHA POR LINHA */
+.text-box p span {
+  display: block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: lineFade 0.8s ease forwards;
+}
+
+.text-box p span:nth-child(1) { animation-delay: 0.2s; }
+.text-box p span:nth-child(2) { animation-delay: 0.6s; }
+.text-box p span:nth-child(3) { animation-delay: 1s; }
+.text-box p span:nth-child(4) { animation-delay: 1.4s; }
+
+/* CORAÇÕES */
+.heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 16px;
+  color: #ff4d6d;
+  opacity: 0.6;
+  animation: floatHeart 6s linear infinite;
+}
+
+/* ANIMAÇÕES */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes lineFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-500px) scale(1.4);
+    opacity: 0;
+  }
+}
